@@ -64,12 +64,11 @@ kotlin {
         val desktopMain by getting
         desktopMain.dependencies {
             implementation(libs.ktor.client.cio)
-            // ACINQ secp256k1 JNI backend for the JVM/desktop target of the
-            // wallet-core library (mirrors the library's own jvmMain).
-            implementation(libs.secp256k1.jni.jvm)
             // Provides Dispatchers.Main on desktop/JVM (the Swing/AWT event
             // thread) so viewModelScope coroutines can resume on the UI thread.
             implementation(libs.kotlinx.coroutines.swing)
+            // Note: the secp256k1 JVM native backend arrives transitively from
+            // the wallet-core library — the app declares no fr.acinq coordinate.
         }
     }
 }

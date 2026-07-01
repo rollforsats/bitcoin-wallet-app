@@ -1,7 +1,6 @@
 [versions]
 agp = "9.0.1"
 bitcoin-wallet-kmp = "0.1.0"
-secp256k1 = "0.23.0"
 androidx-activityCompose = "1.13.0"
 compose = "1.11.0"
 compose-material3 = "1.4.0"
@@ -43,7 +42,6 @@ ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negoti
 ktor-client-android = { module = "io.ktor:ktor-client-android", version.ref = "io-ktor" }
 ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "io-ktor" }
 ktor-client-cio = { module = "io.ktor:ktor-client-cio", version.ref = "io-ktor" }
-secp256k1-jni-jvm = { module = "fr.acinq.secp256k1:secp256k1-kmp-jni-jvm", version.ref = "secp256k1" }
 ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "io-ktor" }
 lifecycle-viewmodel-compose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycleViewmodelCompose" }
 room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }

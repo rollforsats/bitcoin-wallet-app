@@ -67,8 +67,6 @@ kotlin {
             // Provides Dispatchers.Main on desktop/JVM (the Swing/AWT event
             // thread) so viewModelScope coroutines can resume on the UI thread.
             implementation(libs.kotlinx.coroutines.swing)
-            // Note: the secp256k1 JVM native backend arrives transitively from
-            // the wallet-core library — the app declares no fr.acinq coordinate.
         }
     }
 }

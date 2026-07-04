@@ -1,5 +1,6 @@
 package com.bitcoin.wallet.app.wallet
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
@@ -29,6 +30,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import com.bitcoin.wallet.app.ui.theme.CardContentAccent
+import com.bitcoin.wallet.app.ui.theme.CardContentText
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -91,7 +94,7 @@ private fun ColumnScope.IntroContent(
     Text(
         text = "Your Bitcoin wallet",
         style = MaterialTheme.typography.headlineLarge,
-        color = MaterialTheme.colorScheme.primary,
+        color = MaterialTheme.colorScheme.onBackground,
         textAlign = TextAlign.Center,
     )
     Spacer(Modifier.height(12.dp))
@@ -160,7 +163,7 @@ private fun WalletContent(
         Text(
             text = address,
             style = MaterialTheme.typography.bodyMedium.copy(fontFamily = FontFamily.Monospace),
-            color = MaterialTheme.colorScheme.onSurface,
+            color = CardContentText,
             modifier = Modifier.padding(16.dp),
         )
     }
@@ -168,6 +171,11 @@ private fun WalletContent(
     OutlinedButton(
         onClick = onCopyAddress,
         modifier = Modifier.fillMaxWidth(),
+        // Border + text: black in light, orange in dark (from colorScheme.outline).
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline),
+        colors = ButtonDefaults.outlinedButtonColors(
+            contentColor = MaterialTheme.colorScheme.outline,
+        ),
     ) {
         Text("Copy address", style = MaterialTheme.typography.labelLarge)
     }
@@ -187,12 +195,12 @@ private fun MnemonicCell(index: Int, word: String) {
             Text(
                 text = index.toString(),
                 style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.primary,
+                color = CardContentAccent,
             )
             Text(
                 text = word,
                 style = MaterialTheme.typography.titleMedium,
-                color = MaterialTheme.colorScheme.onSurface,
+                color = CardContentText,
             )
         }
     }

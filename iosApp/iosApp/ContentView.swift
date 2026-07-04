@@ -5,7 +5,7 @@ import shared
 struct ContentView: View {
     var body: some View {
         ComposeView()
-            .ignoresSafeArea(.keyboard) // Compose has own keyboard handler
+            .ignoresSafeArea() // let the Compose background fill behind the status bar + home indicator; content stays inset via the Scaffold's safe-area insets
     }
 }
 

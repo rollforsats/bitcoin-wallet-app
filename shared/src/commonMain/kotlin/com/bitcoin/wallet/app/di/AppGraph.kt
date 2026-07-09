@@ -1,6 +1,5 @@
 package com.bitcoin.wallet.app.di
 
-import com.bitcoin.wallet.app.data.network.HttpClientFactory
 import com.bitcoin.wallet.kmp.WalletFactory
 import com.bitcoin.wallet.kmp.domain.Network
 import com.bitcoin.wallet.kmp.wallet.OnChainWallet
@@ -8,7 +7,6 @@ import dev.zacsweers.metro.AppScope
 import dev.zacsweers.metro.ContributesTo
 import dev.zacsweers.metro.Provides
 import dev.zacsweers.metro.SingleIn
-import io.ktor.client.HttpClient
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
@@ -17,10 +15,6 @@ import kotlinx.coroutines.IO
 interface AppGraph {
 
     companion object {
-
-        // Unscoped
-        @Provides
-        fun provideHttpClient(): HttpClient = HttpClientFactory.create()
 
         // `Dispatchers.IO` is internal on K/Native; the `kotlinx.coroutines.IO`
         // import brings in the multiplatform extension getter.
